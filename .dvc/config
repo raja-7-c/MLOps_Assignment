@@ -1,0 +1,6 @@
+[cache]
+    dir = C:/Users/hp/Desktop/external_cache
+[core]
+    remote = storage
+['remote "storage"']
+    url = s3://mlopsdvc190110070/datastore
