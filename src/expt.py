@@ -85,6 +85,7 @@ out_file.close()
 
 
 #plotting the ROC curve
+import matplotlib.pyplot as plt
 fpr,tpr,thresholds=metrics.roc_curve(y_test,y_destree_prob)
 plt.plot(fpr,tpr,'b', label='AUC = %0.2f'% auc)
 plt.plot([0,1],[0,1],'r-.')
