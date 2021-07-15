@@ -38,10 +38,10 @@ print(X_train.shape,X_test.shape,y_train.shape,y_test.shape)
 
 
 df1 = pd.DataFrame(X_train)
-df1.to_csv("data/prepared/train.csv")
+df1.to_csv("../data/prepared/train.csv")
 
 df2 = pd.DataFrame(X_test)
-df2.to_csv("data/prepared/test.csv")
+df2.to_csv("../data/prepared/test.csv")
 
 #applyting SMOTE to oversample the minority class
 from imblearn.over_sampling import SMOTE
@@ -58,7 +58,7 @@ from sklearn import metrics
 destree = DecisionTreeClassifier(criterion="entropy")
 destree.fit(X_sm,y_sm)
 
-y_destree=destree.predict("data/prepared/test.csv")
+y_destree=destree.predict("../data/prepared/test.csv")
 y_destree_prob=destree.predict_proba(X_test)[:,1]
 
 from sklearn.metrics import f1_score
@@ -79,7 +79,7 @@ acc_f1_dict = {
     'Accuracy':
  acc }
 
-out_file = open("metrics/acc_f1.json","w")
+out_file = open("../metrics/acc_f1.json","w")
 json.dump(acc_f1_dict,out_file)
 out_file.close()
 
@@ -112,7 +112,7 @@ graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
 graph.write_png('Decision_tree.png')
 
 import pickle
-decision_tree_model_filename = 'models/model.pkl'
+decision_tree_model_filename = '../models/model.pkl'
 decision_tree_model_pkl = open(decision_tree_model_filename,'wb')
 pickle.dump(destree,decision_tree_model_pkl)
 decision_tree_model_pkl.close()
