@@ -39,10 +39,10 @@ print(X_train.shape,X_test.shape,y_train.shape,y_test.shape)
 
 
 df1 = pd.DataFrame(X_train)
-df1.to_csv("data/prepared/train.csv")
+df1.to_csv("../data/prepared/train.csv")
 
 df2 = pd.DataFrame(X_test)
-df2.to_csv("data/prepared/test.csv")
+df2.to_csv("../data/prepared/test.csv")
 
 #applyting SMOTE to oversample the minority class
 from imblearn.over_sampling import SMOTE
@@ -56,8 +56,8 @@ from sklearn.ensemble import RandomForestClassifier
 
 rf=RandomForestClassifier(random_state=3)
 rf.fit(X_sm,y_sm)
-y_rf=rf.predict("data/prepared/test.csv")
-y_rf_prob=rf.predict_proba("data/prepared/test.csv")[:,1]
+y_rf=rf.predict("../data/prepared/test.csv")
+y_rf_prob=rf.predict_proba("../data/prepared/test.csv")[:,1]
 
 
 import matplotlib.pyplot as plt
@@ -80,7 +80,7 @@ acc_f1_dict = {
     'Accuracy':
  acc }
 
-out_file = open("metrics/acc_f1.json","w")
+out_file = open("../metrics/acc_f1.json","w")
 json.dump(acc_f1_dict,out_file)
 out_file.close()
 
@@ -101,7 +101,7 @@ feature_cols = ["Time","V1","V2","V3","V4","V5","V6","V7","V8","V9","V10","V11",
                 "V12","V13","V14","V15","V16","V17","V18","V19","V20","V21","V22","V23","V24","V25","V26","V27","V28","Amount"]
 
 import pickle
-random_forest_model_filename = 'models/model.pkl'
+random_forest_model_filename = '../models/model.pkl'
 random_forest_model_pkl = open(random_forest_model_filename,'wb')
 pickle.dump(rf,random_forest_model_pkl)
 random_forest_model_pkl.close()
