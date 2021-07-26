@@ -42,7 +42,7 @@ class Model:
         data: Pandas DataFrame to perform predictions
         """
         # After predicting, we return only the column containing the predictions (i.e. 'Label') after converting it to a list
-        predictions = pycr.predict_model(self.model, data=data).Label.to_list()
+        predictions = pycls.predict_model(self.model, data=data).Label.to_list()
         return predictions
 
 # Load the model
