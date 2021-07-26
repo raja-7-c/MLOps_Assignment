@@ -1,4 +1,0 @@
-outs:
-- md5: 001705725aa4bd56657b68b642ea50d5
-  size: 125666400
-  path: pycaret_blended_model.pkl
